@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-12-2 21:00:07 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="cn.imooc.pojo.Department_Employee_Relation" table="DEPARTMENT_EMPLOYEE_RELATION">
+        <id name="deid" type="int">
+            <column name="DEID" />
+            <generator class="native" />
+        </id>
+        <property name="did" type="int">
+            <column name="DID" />
+        </property>
+        <property name="eid" type="int">
+            <column name="EID" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-11-1 11:40:55 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="cn.imooc.pojo.Department" table="DEPARTMENT">
+        <id name="did" type="int">
+            <column name="DID" />
+            <generator class="native" />
+        </id>
+        <property name="dname" type="java.lang.String">
+            <column name="DNAME" />
+        </property>
+        <property name="ddesc" type="java.lang.String">
+            <column name="DDESC" />
+        </property>
+<!--         <set name="employees" table="EMPLOYEE" cascade="delete,save-update" inverse="true">
+            <key>
+                <column name="DID" />
+            </key>
+            <many-to-many class="cn.imooc.pojo.Employee" />
+        </set> -->
+        <set name="employees" table="DEPARTMENT_EMPLOYEE_RELATION" cascade="save-update" >
+        	<key><column name="DID"></column></key>
+        	<many-to-many class="cn.imooc.pojo.Employee" column="EID"></many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

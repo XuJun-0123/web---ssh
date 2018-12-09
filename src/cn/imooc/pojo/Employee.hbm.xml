@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-11-1 11:40:55 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="cn.imooc.pojo.Employee" table="EMPLOYEE">
+        <id name="eid" type="int">
+            <column name="EID" />
+            <generator class="native" />
+        </id>
+        <property name="ename" type="java.lang.String">
+            <column name="ENAME" />
+        </property>
+        <property name="sex" type="java.lang.String">
+            <column name="SEX" />
+        </property>
+        <property name="birthday" type="java.util.Date">
+            <column name="BIRTHDAY" />
+        </property>
+        <property name="joinDate" type="java.util.Date">
+            <column name="JOINDATE" />
+        </property>
+        <property name="eno" type="java.lang.String">
+            <column name="ENO" />
+        </property>
+        <property name="username" type="java.lang.String">
+            <column name="USERNAME" />
+        </property>
+        <property name="password" type="java.lang.String">
+            <column name="PASSWORD" />
+        </property>
+         
+<!--         <many-to-one name="department" class="cn.imooc.pojo.Department">
+            <column name="DID" />
+        </many-to-one> -->
+         <set name="departments" table="DEPARTMENT_EMPLOYEE_RELATION" cascade="save-update" inverse="true">
+        	<key><column name="EID"></column></key>
+        	<many-to-many class="cn.imooc.pojo.Department" column="DID"></many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>
